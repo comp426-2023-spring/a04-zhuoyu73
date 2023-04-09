@@ -8,7 +8,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "node server.js --port=5555"
+    "test": "node server.js --port=5555", 
+    "start": "node server.js"
   },
   "dependencies": {
     "minimist": "^1.2.8", 
