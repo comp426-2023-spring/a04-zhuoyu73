@@ -27,11 +27,11 @@ app.get('/app/rpsls/play/', (req, res) => {
 	res.send(rpsls(shot = (rock|paper|scissors)));
 });
 
-app.get('/app/rpsls/play/(rock|paper|scissors)/', (req, res) => {
+app.get('/^\/app\/rpsls\/play\/(rock|paper|scissors)\/?$/', (req, res) => {
 	res.send(rpsls());
 });
 
-app.get('/app/rpsls/play/(rock|paper|scissors|lizard|spock)/', (req, res) => {
+app.get('/^\/app\/rpsls\/play\/(rock|paper|scissors|lizard|spock)\/?$/', (req, res) => {
 	res.send(rpsls());
 });
 
