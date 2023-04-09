@@ -24,22 +24,24 @@ app.get('/app/rpsls/', (req, res) => {
 });
 
 app.get('/app/rps/play/', (req, res) => {
-	res.send(rps(shot = (rock|paper|scissors)));
+	res.status(200).send(JSON.stringify(rps(req.query.shot)));
 });
 
 app.get('/app/rpsls/play/', (req, res) => {
-	res.send(rpsls(shot = (rock|paper|scissors)));
+	res.status(200).send(JSON.stringify(rpsls(req.query.shot)));
 });
 
-app.get('/^\/app\/rpsls\/play\/(rock|paper|scissors)\/?$/i', (req, res) => {
-	res.send(rpsls());
+app.get('/app/rps/play/:shot', (req, res) => {
+	res.status(200).send(JSON.stringify(rps(req.params.shot)));
 });
 
-app.get('/^\/app\/rpsls\/play\/(rock|paper|scissors|lizard|spock)\/?$/i', (req, res) => {
-	res.send(rpsls());
+app.get('/app/rpsls/play/:shot', (req, res) => {
+	res.status(200).send(JSON.stringify(rpsls(req.params.shot)));
 });
 
 
 app.use((req, res) => {
   res.status(404).send('404 Not Found');
 });
+
+app.listen(port);
