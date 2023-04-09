@@ -1,3 +1,5 @@
+#!/usr/bin/env code
+
 import minimist from 'minimist';
 import express from 'express';
 import {rps} from "./lib/rpsls.js";
@@ -31,6 +33,14 @@ app.get('/app/rpsls/play/', (req, res) => {
 	res.status(200).send(JSON.stringify(rpsls(req.query.shot)));
 });
 
+app.get('/app/rps/play/', (req, res) => {
+	res.status(200).send(JSON.stringify(rps(req.body.shot)));
+});
+
+app.get('/app/rpsls/play/', (req, res) => {
+	res.status(200).send(JSON.stringify(rpsls(req.body.shot)));
+});
+
 app.get('/app/rps/play/:shot', (req, res) => {
 	res.status(200).send(JSON.stringify(rps(req.params.shot)));
 });
@@ -41,7 +51,7 @@ app.get('/app/rpsls/play/:shot', (req, res) => {
 
 
 app.use((req, res) => {
-  res.status(404).send('404 Not Found');
+  res.status(404).send('404 NOT FOUND');
 });
 
 app.listen(port);
