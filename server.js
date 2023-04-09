@@ -50,7 +50,7 @@ app.get('/app/rpsls/play/:shot', (req, res) => {
 });
 
 
-app.all('*', (req, res) => {
+app.get('*', (req, res) => {
   res.status(404).send('404 NOT FOUND').end();
 });
 
