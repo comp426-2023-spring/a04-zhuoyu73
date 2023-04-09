@@ -7,16 +7,20 @@ const args = minimist(process.argv.slice(2));
 const app = express();
 const port = args.port || 5000;
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
 app.get('/app/', (req, res) => {
-	res.send('200 OK');
+	res.status(200).send('200 OK');
 });
 
 app.get('/app/rps/', (req, res) => {
-	res.send(rps());
+	res.status(200).send(JSON.stringify(rps()));
 });
 
 app.get('/app/rpsls/', (req, res) => {
-	res.send(rpsls());
+	res.status(200).send(JSON.stringify(rpsls()));
 });
 
 app.get('/app/rps/play/', (req, res) => {
