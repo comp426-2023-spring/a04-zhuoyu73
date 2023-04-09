@@ -2,9 +2,7 @@
 
 import minimist from 'minimist';
 import express from 'express';
-//import {rps} from "./lib/rpsls.js";
-//import {rpsls} from "./lib/rpsls.js";
-const { rps, rpsls } = require("./lib/rpsls.js");
+import {rps, rpsls} from "./lib/rpsls.js";
 
 const args = minimist(process.argv.slice(2));
 const app = express();
